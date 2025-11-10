@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "De-AI Google",
-  "version": "1.2.1",
+  "version": "1.0.0",
   "description": "Appends \"-ai\" once and forces classic Web results.",
   "permissions": [],
   "host_permissions": [
@@ -36,7 +36,7 @@
         "*://*.google.co.jp/*",
         "*://google.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["content-safari.js"],
       "run_at": "document_start"
     }
   ]

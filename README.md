@@ -1,6 +1,36 @@
 # De-AI Google Browser Extension
 
-A browser extension that automatically modifies Google search queries to exclude AI-generated results and forces classic search results view. Available for both Chrome and Safari.
+The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results and forces classic search results view. Available for both Chrome and Safari.
+
+## Installation
+
+### Chrome/Edge
+
+1. Clone or download this repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the extension directory
+5. The extension will be installed and active immediately
+
+### Safari (Development)
+
+1. Clone or download this repository
+2. Build Safari version and convert to Xcode project:
+   ```bash
+   ./build.sh --safari-convert
+   ```
+   Or manually:
+   ```bash
+   ./build.sh
+   xcrun safari-web-extension-converter ./build/safari --project-location ./safari
+   ```
+3. Open the generated Xcode project: `open ./safari/De-AI\ Google/De-AI\ Google.xcodeproj`
+4. Run the project in Xcode to install in Safari
+5. Enable the extension in Safari > Settings > Extensions
+
+### From Browser Stores
+
+_Note: This extension is not currently published on browser extension stores_
 
 ## Features
 
@@ -18,53 +48,17 @@ The extension uses multiple approaches to ensure consistent behavior:
 2. **Content Script**: Modifies search queries in real-time and handles form submissions
 3. **URL Rewriting**: Processes both direct navigation and dynamic page changes
 
-## Installation
-
-### Chrome/Edge
-
-1. Clone or download this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the extension directory
-5. The extension will be installed and active immediately
-
-### Safari
-
-1. Clone or download this repository
-2. Use the Safari-specific files (`manifest-safari.json` and `content-safari.js`)
-3. Follow Safari Web Extension development guidelines
-4. Build through Xcode and Safari Web Extension toolkit
-
-### From Browser Stores
-
-_Note: This extension is not currently published on browser extension stores_
-
-## Files Structure
-
-```
-Remove-AI-Summary/
-├── manifest.json          # Chrome/Edge extension manifest (v3)
-├── manifest-safari.json   # Safari extension manifest
-├── rules.json             # Declarative Net Request rules (Chrome/Edge)
-├── content.js             # Content script for Chrome/Edge
-├── content-safari.js      # Enhanced content script for Safari
-├── icons/                 # Extension icons (16, 32, 48, 128px)
-├── README.md              # This file
-├── .gitignore             # Git ignore file
-└── _metadata/             # Chrome-generated metadata
-    └── generated_indexed_rulesets/
-        └── _ruleset1      # Compiled ruleset (binary)
-```
-
 ## Technical Details
 
 ### Permissions
 
 **Chrome/Edge:**
+
 - `declarativeNetRequestWithHostAccess`: For URL redirection rules
 - `host_permissions`: Access to Google search domains
 
 **Safari:**
+
 - `host_permissions`: Access to Google search domains only
 - No declarative net request (uses content script approach)
 
@@ -98,14 +92,29 @@ The extension works out of the box with no configuration required. Supports majo
 
 **Chrome/Edge:** No build process required - load unpacked extension directly.
 
-**Safari:** Requires Safari Web Extension development setup:
-1. Use Safari-specific manifest and content script files
+**Safari:** Proper Safari Web Extension development requires Apple's conversion tool:
+
+```bash
+# 1. Build Safari-compatible files
+./build.sh
+
+# 2. Convert to Safari App Extension using Apple's tool
+xcrun safari-web-extension-converter ./build/safari --project-location ./safari
+
+# 3. Open the generated Xcode project
+open ./safari/De-AI Google/De-AI Google.xcodeproj
+```
+
+**Alternative Safari setup (manual):**
+
+1. Use Safari-specific manifest and content script files from `build/safari/`
 2. Follow Apple's Safari Web Extension guidelines
-3. Build through Xcode for distribution
+3. Use Xcode for development and distribution
 
 ### Testing
 
 **Chrome/Edge:**
+
 1. Load the extension in developer mode
 2. Navigate to Google Search
 3. Perform a search query
@@ -115,18 +124,22 @@ The extension works out of the box with no configuration required. Supports majo
    - Classic search results are displayed
 
 **Safari:**
+
 1. Use Safari Web Extension development tools
-2. Test with the Safari-specific files
-3. Verify same functionality as Chrome version
+2. Convert extension: `xcrun safari-web-extension-converter ./build/safari --project-location ./safari`
+3. Open generated Xcode project and run in Safari
+4. Verify same functionality as Chrome version
 
 ### Debugging
 
 **Chrome/Edge:**
+
 - Check the console for any JavaScript errors
 - Use Chrome DevTools to inspect network requests
 - Monitor the extension's background page in `chrome://extensions/`
 
 **Safari:**
+
 - Use Safari Web Inspector for debugging
 - Check console for JavaScript errors
 - Monitor extension behavior through Safari's developer tools
@@ -162,21 +175,20 @@ This extension:
 
 ## Version History
 
-### v1.2.1 (Current)
-- Updated permissions to be more specific (Google domains only)
-- Added Safari compatibility with dedicated files
-- Improved query normalization
-- Better handling of dynamic page changes
-- Added proper extension icons
+### v1.0.0 (Current)
 
-### v1.1.1
-- Stable release with declarative net request rules
-- Improved query normalization
-- Better handling of dynamic page changes
+- Initial release with dual Chrome/Safari support
+- Declarative Net Request implementation for Chrome/Edge
+- Content-script only implementation for Safari
+- Smart query normalization and deduplication
+- Form interception and dynamic page handling
+- Automated build system for platform-specific deployments
 
 ## License
 
-This project is open source. Feel free to modify and distribute according to your needs.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+MIT License allows you to freely use, modify, and distribute this software.
 
 ## Contributing
 
@@ -192,17 +204,21 @@ If you encounter issues:
 
 1. Check the troubleshooting section above
 2. Open an issue on the project repository
-3. Include your Chrome version and extension version
+3. Include your browser version and extension version (v1.0.0)
 
 ## Browser-Specific Implementation
 
 ### Chrome/Edge (Recommended)
-- **Files**: `manifest.json`, `rules.json`, `content.js`
+
+- **Files**: Use root directory or `build/chrome/`
+- **Components**: `manifest.json`, `rules.json`, `content.js`
 - **Features**: Declarative Net Request + Content Script (fastest, most efficient)
 - **Performance**: Excellent (browser-level URL interception)
 
 ### Safari
-- **Files**: `manifest-safari.json`, `content-safari.js`
+
+- **Files**: Use `build/safari/` directory (generated by build script)
+- **Components**: `manifest.json` (from manifest-safari.json), `content-safari.js`
 - **Features**: Content Script only (no declarative net request support)
 - **Performance**: Good (JavaScript-based URL monitoring)
 - **Note**: Slightly more resource usage due to content-script-only approach

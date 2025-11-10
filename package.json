@@ -1,0 +1,26 @@
+{
+  "name": "de-ai-google",
+  "version": "1.0.0",
+  "description": "Browser extension that excludes AI results from Google searches and forces classic results",
+  "scripts": {
+    "build": "./build.sh",
+    "build:chrome": "echo 'Chrome build ready - use current directory'",
+    "build:safari": "mkdir -p dist/safari && cp manifest-safari.json dist/safari/manifest.json && cp content-safari.js dist/safari/content-safari.js && cp LICENSE dist/safari/ && cp -r icons dist/safari/",
+    "build:safari-xcode": "./build.sh --safari-convert",
+    "clean": "rm -rf build/ dist/ safari/"
+  },
+  "keywords": [
+    "google",
+    "search",
+    "ai",
+    "browser-extension",
+    "chrome",
+    "safari"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/remove-ai-summary"
+  }
+}

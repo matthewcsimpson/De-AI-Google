@@ -1,2 +1,9 @@
 .DS_Store
 _metadata/
+
+# Build directories
+build/
+dist/
+
+# Safari Xcode project
+safari/
