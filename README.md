@@ -2,6 +2,8 @@
 
 The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results and forces classic search results view. Available for both Chrome and Safari.
 
+![Demo](./assets/de-ai-5.jpg)
+
 ## Features
 
 - **Automatic AI Exclusion**: Appends `-ai` to all Google search queries to filter out AI-generated content
@@ -32,7 +34,6 @@ The extension uses multiple approaches to ensure consistent behavior:
 - **Chrome**: ✅ Fully supported (Manifest V3 + Declarative Net Request)
 - **Edge**: ✅ Fully supported (Chromium-based, uses Chrome files)
 - **Safari**: ⚠️ Presently in development
-
 - **Firefox**: ❌ Not compatible (uses Chrome-specific APIs)
 
 ## Configuration
