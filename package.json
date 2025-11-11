@@ -1,21 +1,18 @@
 {
   "name": "de-ai-google",
   "version": "1.0.0",
-  "description": "Browser extension that excludes AI results from Google searches by appending -ai to queries",
+  "description": "Chrome extension that excludes AI results from Google searches by appending -ai to queries",
   "scripts": {
     "build": "./build.sh",
-    "build:chrome": "echo 'Chrome build ready - use current directory'",
-    "build:safari": "mkdir -p build/safari && cp manifest-safari.json build/safari/manifest.json && cp content-safari.js build/safari/content-safari.js && cp LICENSE build/safari/ && cp -r icons build/safari/",
-    "build:safari-xcode": "./build.sh --safari-convert",
-    "clean": "rm -rf build/ safari/"
+    "build:chrome": "./build.sh",
+    "clean": "rm -rf build/"
   },
   "keywords": [
     "google",
     "search",
     "ai",
-    "browser-extension",
-    "chrome",
-    "safari"
+    "chrome-extension",
+    "chrome"
   ],
   "author": "Matthew Simpson",
   "license": "MIT",

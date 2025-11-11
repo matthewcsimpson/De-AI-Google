@@ -1,6 +1,6 @@
-# De-AI Google Browser Extension
+# De-AI Google Chrome Extension
 
-The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results by appending "-ai" to your searches. Available for both Chrome and Safari.
+The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results by appending "-ai" to your searches. Available for Chrome and Edge browsers.
 
 ![Demo](./assets/de-ai-5.jpg)
 
@@ -30,8 +30,8 @@ The extension uses content scripts to ensure consistent behavior:
 
 - **Chrome**: ✅ Fully supported (Manifest V3)
 - **Edge**: ✅ Fully supported (Chromium-based, uses Chrome files)
-- **Safari**: ✅ Supported (macOS, iOS, iPadOS)
-- **Firefox**: ❌ Not compatible (uses Chrome-specific APIs)
+- **Safari**: ❌ Not supported
+- **Firefox**: ❌ Not supported
 
 ## Configuration
 
@@ -61,7 +61,7 @@ This extension:
 - Smart query processing with duplicate prevention
 - Form interception support
 - Dynamic navigation compatibility
-- Available for Chrome, Edge, and Safari (macOS/iOS/iPadOS)
+- Available for Chrome and Edge browsers
 
 ## Installation
 
@@ -72,29 +72,18 @@ This extension:
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the `build/chrome` folder
 
-### Safari (macOS/iOS/iPadOS)
-
-1. Build the Safari version using `./build.sh --safari-convert`
-2. Open the generated Xcode project in `safari/De-AI Google/De-AI Google.xcodeproj`
-3. Build and run the project
-4. Enable the extension in Safari preferences
-
 ## Development
 
 ### Prerequisites
 
 - Node.js (for syntax validation)
-- Xcode (for Safari extension development)
 - Chrome/Edge browser (for testing)
 
 ### Building
 
 ```bash
-# Build all versions
+# Build Chrome version
 ./build.sh
-
-# Build and create Safari Xcode project
-./build.sh --safari-convert
 
 # Clean build artifacts
 npm run clean
@@ -104,14 +93,11 @@ npm run clean
 
 ```
 ├── content.js              # Chrome/Edge content script
-├── content-safari.js       # Safari content script (enhanced)
 ├── manifest.json           # Chrome/Edge extension manifest
-├── manifest-safari.json    # Safari extension manifest
 ├── build.sh               # Build script
 ├── icons/                 # Extension icons (16, 32, 48, 128, 256, 512px)
 └── build/                 # Generated build artifacts
-    ├── chrome/            # Chrome/Edge extension
-    └── safari/            # Safari extension
+    └── chrome/            # Chrome/Edge extension
 ```
 
 ## License
