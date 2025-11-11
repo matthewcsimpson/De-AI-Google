@@ -79,6 +79,41 @@ This extension:
 3. Build and run the project
 4. Enable the extension in Safari preferences
 
+## Development
+
+### Prerequisites
+
+- Node.js (for syntax validation)
+- Xcode (for Safari extension development)
+- Chrome/Edge browser (for testing)
+
+### Building
+
+```bash
+# Build all versions
+./build.sh
+
+# Build and create Safari Xcode project
+./build.sh --safari-convert
+
+# Clean build artifacts
+npm run clean
+```
+
+### Project Structure
+
+```
+├── content.js              # Chrome/Edge content script
+├── content-safari.js       # Safari content script (enhanced)
+├── manifest.json           # Chrome/Edge extension manifest
+├── manifest-safari.json    # Safari extension manifest
+├── build.sh               # Build script
+├── icons/                 # Extension icons (16, 32, 48, 128, 256, 512px)
+└── build/                 # Generated build artifacts
+    ├── chrome/            # Chrome/Edge extension
+    └── safari/            # Safari extension
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
