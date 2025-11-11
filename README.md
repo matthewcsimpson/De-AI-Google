@@ -30,7 +30,7 @@ The extension uses content scripts to ensure consistent behavior:
 
 - **Chrome**: ✅ Fully supported (Manifest V3)
 - **Edge**: ✅ Fully supported (Chromium-based, uses Chrome files)
-- **Safari**: ⚠️ Presently in development
+- **Safari**: ✅ Supported (macOS, iOS, iPadOS)
 - **Firefox**: ❌ Not compatible (uses Chrome-specific APIs)
 
 ## Configuration
@@ -56,7 +56,28 @@ This extension:
 
 ### 1.0.0
 
-- Available for Chrome
+- Initial release
+- Automatic AI exclusion by appending "-ai" to Google search queries
+- Smart query processing with duplicate prevention
+- Form interception support
+- Dynamic navigation compatibility
+- Available for Chrome, Edge, and Safari (macOS/iOS/iPadOS)
+
+## Installation
+
+### Chrome/Edge
+
+1. Download the latest release or build from source
+2. Open Chrome/Edge and go to `chrome://extensions/` (or `edge://extensions/`)
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the `build/chrome` folder
+
+### Safari (macOS/iOS/iPadOS)
+
+1. Build the Safari version using `./build.sh --safari-convert`
+2. Open the generated Xcode project in `safari/De-AI Google/De-AI Google.xcodeproj`
+3. Build and run the project
+4. Enable the extension in Safari preferences
 
 ## License
 

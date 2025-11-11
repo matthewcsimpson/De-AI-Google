@@ -5,9 +5,9 @@
   "scripts": {
     "build": "./build.sh",
     "build:chrome": "echo 'Chrome build ready - use current directory'",
-    "build:safari": "mkdir -p dist/safari && cp manifest-safari.json dist/safari/manifest.json && cp content-safari.js dist/safari/content-safari.js && cp LICENSE dist/safari/ && cp -r icons dist/safari/",
+    "build:safari": "mkdir -p build/safari && cp manifest-safari.json build/safari/manifest.json && cp content-safari.js build/safari/content-safari.js && cp LICENSE build/safari/ && cp -r icons build/safari/",
     "build:safari-xcode": "./build.sh --safari-convert",
-    "clean": "rm -rf build/ dist/ safari/"
+    "clean": "rm -rf build/ safari/"
   },
   "keywords": [
     "google",
@@ -17,10 +17,10 @@
     "chrome",
     "safari"
   ],
-  "author": "Your Name",
+  "author": "Matthew Simpson",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/remove-ai-summary"
+    "url": "https://github.com/matthewcsimpson/De-AI-Google"
   }
 }

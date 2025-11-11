@@ -7,14 +7,12 @@ This extension does NOT collect, store, or transmit any personal data or browsin
 ## What the Extension Does
 
 - Modifies Google search URLs locally in your browser
-- Adds "-ai" parameter to search queries
-- Forces classic Google search results view
+- Adds "-ai" parameter to search queries to exclude AI-generated results
 - All processing happens locally on your device
 
 ## Permissions Used
 
 - **Host permissions for Google domains**: Required to detect and modify Google search pages
-- **declarativeNetRequestWithHostAccess**: Required to modify URL parameters for classic results
 
 ## Data Storage
 
