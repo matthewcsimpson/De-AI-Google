@@ -1,24 +1,22 @@
 # De-AI Google Browser Extension
 
-The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results and forces classic search results view. Available for both Chrome and Safari.
+The Google AI Overview of search results is often quite bad, so this extension automatically modifies Google search queries to exclude AI-generated results by appending "-ai" to your searches. Available for both Chrome and Safari.
 
 ![Demo](./assets/de-ai-5.jpg)
 
 ## Features
 
 - **Automatic AI Exclusion**: Appends `-ai` to all Google search queries to filter out AI-generated content
-- **Classic Results**: Forces Google to display classic search results (`udm=14` parameter)
 - **Smart Query Processing**: Prevents duplicate `-ai` additions and normalizes queries
 - **Form Interception**: Handles both direct URL navigation and form submissions
 - **Dynamic Updates**: Works with single-page application navigation and history changes
 
 ## How It Works
 
-The extension uses multiple approaches to ensure consistent behavior:
+The extension uses content scripts to ensure consistent behavior:
 
-1. **Declarative Net Request**: Automatically adds `udm=14` parameter to Google search URLs
-2. **Content Script**: Modifies search queries in real-time and handles form submissions
-3. **URL Rewriting**: Processes both direct navigation and dynamic page changes
+1. **Content Script**: Modifies search queries in real-time and handles form submissions
+2. **URL Rewriting**: Processes both direct navigation and dynamic page changes
 
 ## Technical Details
 
@@ -26,12 +24,11 @@ The extension uses multiple approaches to ensure consistent behavior:
 
 1. **Normalization**: Removes existing `-ai` terms to prevent duplication
 2. **Addition**: Appends ` -ai` to the cleaned query
-3. **Parameter Injection**: Ensures `udm=14` is present for classic results
-4. **Deduplication**: Tracks last applied URL to prevent infinite redirects
+3. **Deduplication**: Tracks last applied URL to prevent infinite redirects
 
 ### Browser Compatibility
 
-- **Chrome**: ✅ Fully supported (Manifest V3 + Declarative Net Request)
+- **Chrome**: ✅ Fully supported (Manifest V3)
 - **Edge**: ✅ Fully supported (Chromium-based, uses Chrome files)
 - **Safari**: ⚠️ Presently in development
 - **Firefox**: ❌ Not compatible (uses Chrome-specific APIs)

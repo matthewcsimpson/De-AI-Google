@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "De-AI Google",
   "version": "1.0.0",
-  "description": "Appends \"-ai\" once and forces classic Web results.",
+  "description": "Appends \"-ai\" to Google search queries to exclude AI-generated results.",
   "permissions": [],
   "host_permissions": [
     "*://*.google.com/*",

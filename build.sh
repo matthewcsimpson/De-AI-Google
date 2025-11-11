@@ -16,7 +16,6 @@ mkdir -p build/chrome
 # Copy Chrome files
 cp manifest.json build/chrome/
 cp content.js build/chrome/
-cp rules.json build/chrome/
 cp LICENSE build/chrome/
 cp -r icons build/chrome/
 

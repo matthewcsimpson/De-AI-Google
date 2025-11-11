@@ -18,19 +18,7 @@
     const url = new URL(location.href);
     const q = url.searchParams.get("q");
 
-    // Force udm=14 parameter for classic results
-    if (url.searchParams.get("udm") !== "14") {
-      url.searchParams.set("udm", "14");
-    }
-
-    if (!q) {
-      const next = url.toString();
-      if (next !== lastApplied && next !== location.href) {
-        lastApplied = next;
-        location.replace(next);
-      }
-      return;
-    }
+    if (!q) return;
 
     const normalized = normalizeQuery(q);
     if (normalized !== q) {
@@ -40,14 +28,6 @@
         lastApplied = next;
         location.replace(next);
       }
-      return;
-    }
-
-    // Apply URL changes if udm was added
-    const next = url.toString();
-    if (next !== lastApplied && next !== location.href) {
-      lastApplied = next;
-      location.replace(next);
     }
   };
 

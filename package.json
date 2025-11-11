@@ -1,7 +1,7 @@
 {
   "name": "de-ai-google",
   "version": "1.0.0",
-  "description": "Browser extension that excludes AI results from Google searches and forces classic results",
+  "description": "Browser extension that excludes AI results from Google searches by appending -ai to queries",
   "scripts": {
     "build": "./build.sh",
     "build:chrome": "echo 'Chrome build ready - use current directory'",

@@ -23,18 +23,6 @@
     const normalized = normalizeQuery(q);
     if (normalized !== q) {
       url.searchParams.set("q", normalized);
-      if (url.searchParams.get("udm") !== "14")
-        url.searchParams.set("udm", "14");
-      const next = url.toString();
-      if (next !== lastApplied) {
-        lastApplied = next;
-        location.replace(next);
-      }
-      return;
-    }
-
-    if (url.searchParams.get("udm") !== "14") {
-      url.searchParams.set("udm", "14");
       const next = url.toString();
       if (next !== lastApplied) {
         lastApplied = next;
