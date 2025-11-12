@@ -65,40 +65,7 @@ This extension:
 
 ## Installation
 
-### Chrome/Edge
-
-1. Download the latest release or build from source
-2. Open Chrome/Edge and go to `chrome://extensions/` (or `edge://extensions/`)
-3. Enable "Developer mode"
-4. Click "Load unpacked" and select the `build/chrome` folder
-
-## Development
-
-### Prerequisites
-
-- Node.js (for syntax validation)
-- Chrome/Edge browser (for testing)
-
-### Building
-
-```bash
-# Build Chrome version
-./build.sh
-
-# Clean build artifacts
-npm run clean
-```
-
-### Project Structure
-
-```
-├── content.js              # Chrome/Edge content script
-├── manifest.json           # Chrome/Edge extension manifest
-├── build.sh               # Build script
-├── icons/                 # Extension icons (16, 32, 48, 128, 256, 512px)
-└── build/                 # Generated build artifacts
-    └── chrome/            # Chrome/Edge extension
-```
+De-AI Google is available from the <a target="_blank" href="https://chromewebstore.google.com/detail/nkcedogblnkemelngcggpglflocghmfh">Chrome Web Store</a>. 
 
 ## License
 
